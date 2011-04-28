@@ -13,6 +13,7 @@ Reviewers providing editing and suggestions:
 
 To produce a book-like html:
    asciidoc -d book *txt
+   For best results, you should have source-highlight installed.
 
 Note: author is an asciidoc newb.
 
