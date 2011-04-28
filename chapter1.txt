@@ -1,0 +1,389 @@
+A Bunch Of Machines
+===================
+
+
+Think About Programming
+-----------------------
+
+Before we can start programming, we have to think about programming and 
+programs. If you can think about it right, you'll have an advantage over
+all the other programmers who learned the basic mechanics but don't really
+understand it. footnote:[there are a lot of people who program for a living
+but don't really understand what they do. It's very sad.]
+
+The computer ("hardware") is a bunch of wires, and bent metal, and plastic, and
+what-have-you.  In the words of [cite], the hardware is the part you can kick.
+
+The part that makes the computer useful is called "software." 
+footnote:[That's unfair, because hardware makes the software useful, too, but it
+is still a useful way to think about software right now. Don't think too hard about it.]
+Software is just programs.
+
+Programs are everything that make a computer work, from Windows and Linux and
+OS/X (which are basically programs that run other programs), to console games,
+to the great Google search engine, to incredible photo-editing programs, word
+processors, and online shopping carts.
+
+Programs and hardware have a lot in common. Both of them are things that take
+some kind of action such as a mouse movement, and respond by causing something
+else to happen. Pressing a button on your video screen may cause it to get
+brighter or darker. Typing into an email program may cause it to send a note
+across the internet. 
+
+In other words, it's all "machines."  Hardware is a bunch of physical machines,
+from resistors to wires to capacitors and springs and buttons. Software is
+also a machine, but it's made out of something different. In this book, you 
+will learn about software parts and how to make machines of them.
+
+What would you think of a new car made out of duct tape, paperclips, and chewing
+gum? It might be pretty cool to actually produce a car that way, but would
+you take it out on the highway? Machines can be made well, or can be made
+poorly. If we set out to build a machine poorly, it's a hobby or an experiment. 
+These are good things! You should be able to make something well, poorly, or
+semi-well, and you should enjoy doing it. If the work is important and you 
+want to be paid or you want people to use the software you build, you will 
+need to build it well. Don't be surprised that not all software is built well.
+
+Be warned, you won't be creating any 3D shooters in this book [well, maybe not], 
+but you will learn the essentials of computer programming. Knowing the basics
+will allow you to move to more and more fancy programming machines, and you
+may eventually build a 3D shooter, or a spaceship guidance system, or a
+web page. 
+
+Also be warned, the topic is sometimes fascinating and exciting, but sometimes 
+you'll not feel like doing the work. That's pretty normal. Developing your
+ability to concentrate and do work until it is exciting again is a part of 
+learning to program. Also, a programmer has to learn to stop sometimes and 
+give it a rest. You will learn when to push and when to rest. 
+
+One Little Machine
+------------------
+We are going to start in something called Python. The people who make python
+make it because they like it, not because they want to sell it and get rich.
+You can go to http:python.org[the Python web page] and get python. It's 
+really easy to install python, it's usually just a download footnote:[if 
+you use Ubuntu, you can use the software store]. 
+
+Once you have python installed, you need to start it. The web page gives you
+instructions. You might use a menu and click "python" and "idle", or you might 
+go to a command line and type "python." Try it both ways, if you like.
+
+Eventually you will get a prompt that looks like this:
+image:prompt[python prompt]
+
+You can now start to play with some little machines. The first is something 
+called a "string," which is short for "text string." A string is some
+letters, spaces, numbers or other text things you can type. In a string,
+they are all stuck together inside quotes:
+
+<code language="python>
+ottinge@annette:/ProgrammingAtAll$ python
+>>> "hello"
+'hello'
+</code>
+
+Here we typed "hello" (including the quotes) and python gave us back the 
+result, which is a string with the value 'hell' (don't worry about quotes
+for now). I know that doesn't seem like much of a machine, but it is. You
+can ask it to do things and it will do them.
+
+
+<code language="python">
+>>> "hello" + ", you"
+'hello, you'
+>>> 
+</code>
+
+Here we did the same things as last time, but we told the string with
+"hello" in it to add a comma and the word 'you'. It did, and returned
+a new machine, which is a string with the value "hello, you." 
+
+The plus command above is called an "operator", but those are not 
+too important right now. Let's set that one aside and look at the
+other ways we can talk to a string.
+
+The string is a kind of machine that can obey a large set of commands.
+To give it a command, you have to know the name of the command and
+type it after a period. Imagine you're talking to the string, and 
+you say "string, change yourself to uppercase."  The dot between the
+string you're talking to and the command is a lot like the comma in
+the above sentence.  
+
+Let's look at a few examples:
+
+<code language="python">
+>>> "hello".upper()
+'HELLO'
+</code>
+
+The string can also convert itself to lower-case:
+
+<code language="python">
+>>> "HELLO".lower()
+'hello'
+</code>
+
+
+It has some fancy abilities, like capitalizing the first letter of every word:
+<code language="python">
+>>> "hello".title()
+'Hello'
+</code>
+
+We can have it print itself at the right-end of a string, which we call
+"right-justified".  Let's right-justify a string in a 40-letter string:\
+
+<code language="python">
+>>> "hello".rjust(40)
+'                                   hello'
+</code>
+
+There's no reason to stop there, because we can also left-justify the
+string.
+<code language="python">
+>>> "hello".ljust(40)
+'hello                                   '
+</code>
+
+We can also have it replace letters with other letters. Let's try replacing
+the lower-case 'h' at the beginning with an upper-case H:
+
+<code language="python">
+>>> "hello".replace("h","H")
+'Hello'
+</code>
+
+Of course that looks too easy because it's at the beginning of the word. 
+How about we replace all of the lower-case L letters with capital letters?
+
+<code language="python">
+>>> "hello".replace("l","L").swapcase()
+'HEllO'
+</code>
+
+We can also ask the string questions. Let's ask it how many lower-case 
+L letters it has:
+<code language="python">
+>>> "hello".count('l')
+2
+>>> 
+</code>
+
+All of the abilities are built-in to the string. It's just the kind of
+machine it is. footnote:[Advanced students can find out what a string can
+do by typing <code>dir("hello")</code>] Somebody cleverly added these
+commands when they designed the string type of machine.
+
+Here is a good place for some terminology. A type of machine is a class. 
+Programmers would say that "hello" has the string /class/, or that it is
+a thing of /class string/.  
+
+Notice that the string doesn't draw butterflies on the screen, or turn off the
+computer or add numbers together. It only does "string stuff." It is important
+that each machine we make has commands that work together. It is just like at
+your house, where you turn on the television to watch a show, but turn on the
+blender to make a milkshake. You use the refrigerator to make things cold, and
+the stove to make them hot. It is an important law of machines that they have
+only one job to do. 
+
+We call the idea that an idea has only one idea "cohesion." Cohesion implies
+all things going in the same direction. That's the right idea. A famous
+programmer named Bertrand Meyer once said of a software class that it "Has one
+responsibility: it does it all, does it well, and does it only."
+
+Imagine if your real-world items didn't have cohesion in this sense: your
+refrigerator would hammer nails, and you would have to start your car to chill
+soda pop. Crazy, right?  With cohesion, you always know where to look when you
+want a certain job done. If you want to work with some text, you can pretty
+much count on the idea that you'll use a string.
+
+Did you notice that we got the value of 2 when we asked how many copies of
+letter L were in "hello?"  We know that 2 is a number, but did you know that 2
+is also a machine? It is a machine of type "integer."
+
+<code language="python">
+>> 2+2
+4
+</code>
+
+<code language="python">
+>> 2*4
+8
+</code>
+
+These examples don't use the "." to issue commands, and that's almost a shame.
+But the + for addition and the * for multiplication are performed by the
+integer class. These types of commands are a little different, because they
+don't use the dot notation. 
+
+The integers don't actually have methods named "add" and "times", but they do have 
+special functions named __add__ and __mul__. You could actually use them, but
+python added the + and * as a convenience.
+ 
+It is as if you could write this:
+<code language="python">
+>> 2.__add__(2) 
+4
+>> 2.__mul__(4)
+8
+>> 
+</code>
+
+You don't have to like the names "__mul__" and "__add__" in order to use them.
+The people who made python decided that this is how they would make their 
+number types. As long as they do what you want, you can tolerate a little 
+strangeness.
+
+So strings are little machines and numbers are little machines. Already
+we could put them together and do very simple jobs. For instance, if we
+know the operators for integers, we can use python as a calculator!
+
+Variables
+---------
+
+The problem with the code above is that we had to type "hello" every time we 
+wanted the string that contains the value "hello." What we need is some way to 
+hold onto the "hello" string and talk about it. Indeed we can. We can make up 
+a name and assign the value "hello" to that name.  
+
+This is a little confusing, though. The command we use to give a name to a
+value is the equals sign (=). All of our lives, we have seen the equal sign
+used to state a fact. For instance: 2+2 = 4. We have to rework our brain a
+bit to understand that many programming languages do it differently. Some are
+more reasonable-seeming than others:
+<code language="basic">
+   let x = 3;   <-- BASIC
+</code>
+<code language="pascal">
+   int x := 3;  <-- Pascal
+</code>
+<code language="bash">
+   set x=3  <---bash
+</code>
+<code language="C">
+   int x = 3; <-- C 
+</code>  
+
+In python, it's pretty simple-looking: 
+<code language="Python">
+   x = 3
+</code>
+Remember that this little bit of programming is not stating a fact, but 
+issuing a command to attach the name "x" to the value of 3. Most of the
+time in programming, we don't state facts. We are always telling the 
+computer to do something or tell us something.
+
+In python a name is attached to a value, but you can attach it to any
+other value you like.
+
+<code language="Python">
+>> x=3
+>> x="elephant"
+>> x=23.4
+>> x=33*2.33
+</code>
+
+When we typed 2 or 3 or "hello", python would tell us the value. In 
+the example above, it didn't tell us anything. That is because the 
+value of 3 was "captured" by the name "x" and there was nothing 
+interesting to print on the screen. If you typed "x" on a line by
+itself after the last line above, it would say 76.890000000000001
+or something very close to it, which is roughly the value of 33
+times 2.33. That's close enough to being true that we're not 
+worried about it (for now).
+
+We refer to these names for values as "variable" because we can
+change what the name points at. It varies, so we call it a variable.
+
+Generally we don't call things X very often, because it doesn't mean
+much to us. When we use names later in this book we will use longer
+names that mean something to us and which will help people reading
+our programs to understand them.
+
+Using Variables
+---------------
+
+Just for fun we can print something like this:
+<code language="python">
+>> print "George Washington has wooden teeth."
+George Washington has wooden teeth.
+</code>
+
+Print is a special command that tells python (remember python is a machine
+too) to show a message on the screen. It isn't very exciting, but it tells
+you that you now have new ways to interact with your machine.
+
+Let's try something slightly more advanced:
+
+<code language="python">
+>>> a = "George Washington"
+>>> b = "wooden"
+>>> c = "teeth"
+>>> print a  + " has " + b + " " + c + "."
+George Washington has wooden teeth.
+</code>
+
+Now we see that the print line is a kind of machine that assembles
+words into a sentence. That's almost exciting!  In our case, though,
+it is not as exciting as we would like. It would be more fun if 
+there was a way to have it build different sentences out of lists
+of different words. It might be more fun yet if it could pick the
+words randomly. 
+
+In other words, it would be fun to make a machine that spouts
+gibberish.
+
+It turns out that we have lists in python. They are machines that
+hold a bunch of values and can give us one or several of them at a time.
+It's pretty cool stuff. Python is just full of little machines like
+these that we can use to build more interesting machines.
+
+This is going to get wild and wooly, so try to type the examples
+and understand them as we go along:
+
+<code language="python">
+>>> names = ["tim","jeff","Elvis","Freddie","King James","Nick","You"]
+</code>
+
+We assign the name "names" to a list of strings. You can tell it is a list because
+it is wrapped in square brackets and the items are separated with commas.
+That's how python makes lists. Other languages may do it very differently.
+
+We can ask questions about the lists. We can ask the length of the list, for
+example: 
+<code language="python">
+>>> len(names)
+7
+</code>
+
+Seven looks right. We should be able to get the first name from the list. We
+can use a special syntax called a subscript operator to find the first item
+in name. We use square brackets for subscripting, just like we did for the list
+creation, but we can tell that we are looking into a list because the word before
+the first square bracket is not the equal sign but list.
+<code language="python">
+>>> names[1]
+'jeff'
+</code> 
+
+Uh, oh. That doesn't look right. When we created the list, the first name was 
+"tim", so we've done something wrong. If we type "print list", though, we see 
+that we still have "tim" in front. Weird, huh? 
+
+The reason is important: computer programmers count from zero, not one. It is
+a historical thing but it's pretty normal. So the item at position one is the
+item one place from the start. We want the item at position 0.
+
+<code language="python">
+>>> names[0]
+'tim'
+</code>
+
+Okay, that's what we expected. Counting from zero works better.
+
+There is also a
+
+<code language="python">
+>>> names.pop()
+'You'
+</code>
