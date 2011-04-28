@@ -76,11 +76,9 @@ called a "string," which is short for "text string." A string is some
 letters, spaces, numbers or other text things you can type. In a string,
 they are all stuck together inside quotes:
 
-<code language="python>
-ottinge@annette:/ProgrammingAtAll$ python
->>> "hello"
-'hello'
-</code>
+    ottinge@annette:/ProgrammingAtAll$ python
+    >>> "hello"
+    'hello'
 
 Here we typed "hello" (including the quotes) and python gave us back the 
 result, which is a string with the value 'hell' (don't worry about quotes
@@ -88,11 +86,9 @@ for now). I know that doesn't seem like much of a machine, but it is. You
 can ask it to do things and it will do them.
 
 
-<code language="python">
->>> "hello" + ", you"
-'hello, you'
->>> 
-</code>
+    >>> "hello" + ", you"
+    'hello, you'
+    >>> 
 
 Here we did the same things as last time, but we told the string with
 "hello" in it to add a comma and the word 'you'. It did, and returned
@@ -111,63 +107,49 @@ the above sentence.
 
 Let's look at a few examples:
 
-<code language="python">
->>> "hello".upper()
-'HELLO'
-</code>
+    >>> "hello".upper()
+    'HELLO'
 
 The string can also convert itself to lower-case:
 
-<code language="python">
->>> "HELLO".lower()
-'hello'
-</code>
+    >>> "HELLO".lower()
+    'hello'
 
 
 It has some fancy abilities, like capitalizing the first letter of every word:
-<code language="python">
->>> "hello".title()
-'Hello'
-</code>
+
+    >>> "hello".title()
+    'Hello'
 
 We can have it print itself at the right-end of a string, which we call
 "right-justified".  Let's right-justify a string in a 40-letter string:\
 
-<code language="python">
->>> "hello".rjust(40)
-'                                   hello'
-</code>
+    >>> "hello".rjust(40)
+    '                                   hello'
 
 There's no reason to stop there, because we can also left-justify the
 string.
-<code language="python">
->>> "hello".ljust(40)
-'hello                                   '
-</code>
+
+    >>> "hello".ljust(40)
+    'hello                                   '
 
 We can also have it replace letters with other letters. Let's try replacing
 the lower-case 'h' at the beginning with an upper-case H:
 
-<code language="python">
->>> "hello".replace("h","H")
-'Hello'
-</code>
+    >>> "hello".replace("h","H")
+    'Hello'
 
 Of course that looks too easy because it's at the beginning of the word. 
 How about we replace all of the lower-case L letters with capital letters?
 
-<code language="python">
->>> "hello".replace("l","L").swapcase()
-'HEllO'
-</code>
+    >>> "hello".replace("l","L").swapcase()
+    'heLLo'
 
 We can also ask the string questions. Let's ask it how many lower-case 
 L letters it has:
-<code language="python">
->>> "hello".count('l')
-2
->>> 
-</code>
+    >>> "hello".count('l')
+    2
+    >>> 
 
 All of the abilities are built-in to the string. It's just the kind of
 machine it is. footnote:[Advanced students can find out what a string can
@@ -201,15 +183,11 @@ Did you notice that we got the value of 2 when we asked how many copies of
 letter L were in "hello?"  We know that 2 is a number, but did you know that 2
 is also a machine? It is a machine of type "integer."
 
-<code language="python">
->> 2+2
-4
-</code>
+    >> 2+2
+    4
 
-<code language="python">
->> 2*4
-8
-</code>
+   >> 2*4
+   8
 
 These examples don't use the "." to issue commands, and that's almost a shame.
 But the + for addition and the * for multiplication are performed by the
@@ -221,13 +199,12 @@ special functions named __add__ and __mul__. You could actually use them, but
 python added the + and * as a convenience.
  
 It is as if you could write this:
-<code language="python">
->> 2.__add__(2) 
-4
->> 2.__mul__(4)
-8
->> 
-</code>
+
+   >> 2.__add__(2) 
+   4
+   >> 2.__mul__(4)
+   8
+   >> 
 
 You don't have to like the names "__mul__" and "__add__" in order to use them.
 The people who made python decided that this is how they would make their 
@@ -251,23 +228,16 @@ value is the equals sign (=). All of our lives, we have seen the equal sign
 used to state a fact. For instance: 2+2 = 4. We have to rework our brain a
 bit to understand that many programming languages do it differently. Some are
 more reasonable-seeming than others:
-<code language="basic">
+
    let x = 3;   <-- BASIC
-</code>
-<code language="pascal">
    int x := 3;  <-- Pascal
-</code>
-<code language="bash">
    set x=3  <---bash
-</code>
-<code language="C">
    int x = 3; <-- C 
-</code>  
 
 In python, it's pretty simple-looking: 
-<code language="Python">
+
    x = 3
-</code>
+
 Remember that this little bit of programming is not stating a fact, but 
 issuing a command to attach the name "x" to the value of 3. Most of the
 time in programming, we don't state facts. We are always telling the 
@@ -276,12 +246,10 @@ computer to do something or tell us something.
 In python a name is attached to a value, but you can attach it to any
 other value you like.
 
-<code language="Python">
->> x=3
->> x="elephant"
->> x=23.4
->> x=33*2.33
-</code>
+   >> x=3
+   >> x="elephant"
+   >> x=23.4
+   >> x=33*2.33
 
 When we typed 2 or 3 or "hello", python would tell us the value. In 
 the example above, it didn't tell us anything. That is because the 
@@ -304,10 +272,9 @@ Using Variables
 ---------------
 
 Just for fun we can print something like this:
-<code language="python">
->> print "George Washington has wooden teeth."
-George Washington has wooden teeth.
-</code>
+
+   >> print "George Washington has wooden teeth."
+   George Washington has wooden teeth.
 
 Print is a special command that tells python (remember python is a machine
 too) to show a message on the screen. It isn't very exciting, but it tells
@@ -315,13 +282,11 @@ you that you now have new ways to interact with your machine.
 
 Let's try something slightly more advanced:
 
-<code language="python">
->>> a = "George Washington"
->>> b = "wooden"
->>> c = "teeth"
->>> print a  + " has " + b + " " + c + "."
-George Washington has wooden teeth.
-</code>
+   >>> a = "George Washington"
+   >>> b = "wooden"
+   >>> c = "teeth"
+   >>> print a  + " has " + b + " " + c + "."
+   George Washington has wooden teeth.
 
 Now we see that the print line is a kind of machine that assembles
 words into a sentence. That's almost exciting!  In our case, though,
@@ -341,9 +306,7 @@ these that we can use to build more interesting machines.
 This is going to get wild and wooly, so try to type the examples
 and understand them as we go along:
 
-<code language="python">
->>> names = ["tim","jeff","Elvis","Freddie","King James","Nick","You"]
-</code>
+   >>> names = ["tim","jeff","Elvis","Freddie","King James","Nick","You"]
 
 We assign the name "names" to a list of strings. You can tell it is a list because
 it is wrapped in square brackets and the items are separated with commas.
@@ -351,20 +314,18 @@ That's how python makes lists. Other languages may do it very differently.
 
 We can ask questions about the lists. We can ask the length of the list, for
 example: 
-<code language="python">
->>> len(names)
-7
-</code>
+
+   >>> len(names)
+   7
 
 Seven looks right. We should be able to get the first name from the list. We
 can use a special syntax called a subscript operator to find the first item
 in name. We use square brackets for subscripting, just like we did for the list
 creation, but we can tell that we are looking into a list because the word before
 the first square bracket is not the equal sign but list.
-<code language="python">
->>> names[1]
-'jeff'
-</code> 
+
+   >>> names[1]
+   'jeff'
 
 Uh, oh. That doesn't look right. When we created the list, the first name was 
 "tim", so we've done something wrong. If we type "print list", though, we see 
@@ -374,16 +335,52 @@ The reason is important: computer programmers count from zero, not one. It is
 a historical thing but it's pretty normal. So the item at position one is the
 item one place from the start. We want the item at position 0.
 
-<code language="python">
->>> names[0]
-'tim'
-</code>
+   >>> names[0]
+   'tim'
 
 Okay, that's what we expected. Counting from zero works better.
 
-There is also a
+There is also another way to get data from the array. There is a command called
+"pop" which removes one list element and returns it. Let's see if we can grab the first one:
 
-<code language="python">
->>> names.pop()
-'You'
-</code>
+   >>> names = ["tim","jeff","Elvis","Freddie","King James","Nick","You"]
+   >>> names.pop()
+   'You'
+
+That doesn't seem to have worked. When you get an error in programming, you
+might have the urge to just try it again, or throw up your hands in disgust.
+Since programming is all about learning and building, a better approach is to
+see what actually happened and try to understand it.
+
+In this case, what happened was that we got the last element instead of 
+the first. When we look at the python documentation, we see that it is the
+right thing for a list to do, we just didn't understand what pop() would 
+do. We also will find out that we can tell pop() which item to pull. If
+we want the first one, we remember that programmers count from zero and
+ask for list item zero:
+
+   >>> names.pop(0)
+   'tim'
+  
+Ah, now that's what we want. Now we have a simple procedure for solving
+problems. You always try to figure out what really happened and check the
+documentation. Is it doing what it is supposed to do? Did our instructions have
+an error in them? After all, a program is a machine so it always does what it
+was told to do, but sometimes we don't always tell it to do the right things.
+
+In this case, the author misled you. We said that pop() would get the first 
+item, and it does not. Usually you will come to misunderstandings on your own,
+and these misunderstandings will come up as errors. Errors are not desirable,
+but you have to have them if you are to learn. Programmers have learned a
+whole bunch of tricks to keep from misunderstanding code, and to make sure
+that they find out quickly when they make a mistake. We'll teach these tricks
+as we go along.
+
+The first trick is one you're already doing: read books, try things out, and
+concentrate on learning instead of being perfect.
+
+Remember, when we got the last name instead of the first one, the earth did not implode and nobody got hurt. The program just did not work. This is how most 
+errors turn out. There have been bugs that hurt people or cost money, but we're 
+not going to make those here. 
+
+
