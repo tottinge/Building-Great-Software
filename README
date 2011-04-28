@@ -1,0 +1,18 @@
+This book is, like any book should be, a work in progress.
+This work is soon to be released under a Creative Commons license.
+Until it is decided, a non-author must assume the CC BY ND licensing.
+
+To join the group authors, send an email to tottinge@gmail.com. 
+
+So far the authors include:
+  Tim Ottinger tottinge@gmail.com
+
+Reviewers providing editing and suggestions:
+  None yet.
+
+
+To produce a book-like html:
+   asciidoc -d book *txt
+
+Note: author is an asciidoc newb.
+
