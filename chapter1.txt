@@ -76,6 +76,7 @@ called a "string," which is short for "text string." A string is some
 letters, spaces, numbers or other text things you can type. In a string,
 they are all stuck together inside quotes:
 
+[source,python]
     ottinge@annette:/ProgrammingAtAll$ python
     >>> "hello"
     'hello'
@@ -86,6 +87,7 @@ for now). I know that doesn't seem like much of a machine, but it is. You
 can ask it to do things and it will do them.
 
 
+[source,python]
     >>> "hello" + ", you"
     'hello, you'
     >>> 
@@ -107,46 +109,55 @@ the above sentence.
 
 Let's look at a few examples:
 
+[source,python]
     >>> "hello".upper()
     'HELLO'
 
 The string can also convert itself to lower-case:
 
+[source,python]
     >>> "HELLO".lower()
     'hello'
 
 
 It has some fancy abilities, like capitalizing the first letter of every word:
 
+[source,python]
     >>> "hello".title()
     'Hello'
 
 We can have it print itself at the right-end of a string, which we call
 "right-justified".  Let's right-justify a string in a 40-letter string:\
 
+[source,python]
     >>> "hello".rjust(40)
     '                                   hello'
 
 There's no reason to stop there, because we can also left-justify the
 string.
 
+[source,python]
     >>> "hello".ljust(40)
     'hello                                   '
 
 We can also have it replace letters with other letters. Let's try replacing
 the lower-case 'h' at the beginning with an upper-case H:
 
+[source,python]
     >>> "hello".replace("h","H")
     'Hello'
 
 Of course that looks too easy because it's at the beginning of the word. 
 How about we replace all of the lower-case L letters with capital letters?
 
+[source,python]
     >>> "hello".replace("l","L").swapcase()
     'heLLo'
 
 We can also ask the string questions. Let's ask it how many lower-case 
 L letters it has:
+
+[source,python]
     >>> "hello".count('l')
     2
     >>> 
@@ -183,11 +194,11 @@ Did you notice that we got the value of 2 when we asked how many copies of
 letter L were in "hello?"  We know that 2 is a number, but did you know that 2
 is also a machine? It is a machine of type "integer."
 
+[source,python]
     >> 2+2
     4
-
-   >> 2*4
-   8
+    >> 2*4
+    8
 
 These examples don't use the "." to issue commands, and that's almost a shame.
 But the + for addition and the * for multiplication are performed by the
@@ -200,6 +211,7 @@ python added the + and * as a convenience.
  
 It is as if you could write this:
 
+[source,python]
    >> 2.__add__(2) 
    4
    >> 2.__mul__(4)
@@ -229,13 +241,18 @@ used to state a fact. For instance: 2+2 = 4. We have to rework our brain a
 bit to understand that many programming languages do it differently. Some are
 more reasonable-seeming than others:
 
+[source,vbscript]
    let x = 3;   <-- BASIC
+[source,pascal]
    int x := 3;  <-- Pascal
+[source,bash]
    set x=3  <---bash
+[source,c]
    int x = 3; <-- C 
 
 In python, it's pretty simple-looking: 
 
+[source,python]
    x = 3
 
 Remember that this little bit of programming is not stating a fact, but 
@@ -246,6 +263,7 @@ computer to do something or tell us something.
 In python a name is attached to a value, but you can attach it to any
 other value you like.
 
+[source,python]
    >> x=3
    >> x="elephant"
    >> x=23.4
@@ -273,6 +291,7 @@ Using Variables
 
 Just for fun we can print something like this:
 
+[source,python]
    >> print "George Washington has wooden teeth."
    George Washington has wooden teeth.
 
@@ -282,6 +301,7 @@ you that you now have new ways to interact with your machine.
 
 Let's try something slightly more advanced:
 
+[source,python]
    >>> a = "George Washington"
    >>> b = "wooden"
    >>> c = "teeth"
@@ -306,6 +326,7 @@ these that we can use to build more interesting machines.
 This is going to get wild and wooly, so try to type the examples
 and understand them as we go along:
 
+[source,python]
    >>> names = ["tim","jeff","Elvis","Freddie","King James","Nick","You"]
 
 We assign the name "names" to a list of strings. You can tell it is a list because
@@ -315,6 +336,7 @@ That's how python makes lists. Other languages may do it very differently.
 We can ask questions about the lists. We can ask the length of the list, for
 example: 
 
+[source,python]
    >>> len(names)
    7
 
@@ -324,6 +346,7 @@ in name. We use square brackets for subscripting, just like we did for the list
 creation, but we can tell that we are looking into a list because the word before
 the first square bracket is not the equal sign but list.
 
+[source,python]
    >>> names[1]
    'jeff'
 
@@ -335,6 +358,7 @@ The reason is important: computer programmers count from zero, not one. It is
 a historical thing but it's pretty normal. So the item at position one is the
 item one place from the start. We want the item at position 0.
 
+[source,python]
    >>> names[0]
    'tim'
 
@@ -343,6 +367,7 @@ Okay, that's what we expected. Counting from zero works better.
 There is also another way to get data from the array. There is a command called
 "pop" which removes one list element and returns it. Let's see if we can grab the first one:
 
+[source,python]
    >>> names = ["tim","jeff","Elvis","Freddie","King James","Nick","You"]
    >>> names.pop()
    'You'
@@ -359,6 +384,7 @@ do. We also will find out that we can tell pop() which item to pull. If
 we want the first one, we remember that programmers count from zero and
 ask for list item zero:
 
+[source,python]
    >>> names.pop(0)
    'tim'
   
