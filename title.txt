@@ -1,0 +1,37 @@
+    Programming At All
+    ==================
+    author tottinge@gmail.com
+    0.0, 4/25/2011
+
+Why Write This Book?
+====================
+
+There are many books out in the world for beginners, and
+many of them are fine books. Everyone who programs is tempted
+to write a book for beginners, partly because they know how
+hard it was for them to start and how exciting. 
+
+It is hard partly because we all think differently, and the books
+don't line up with how we think quite right. As a result, there is
+always going to be a market for a book that takes a different 
+approach.
+
+We're going to do this "the wrong way," by starting with big
+ideas and explaining them simply instead of building up from
+simple mechanical operations (click this, type that) and stopping
+before the topic becomes interesting.
+
+This book is for someone who isn't stupid, but never programmed. It
+is especially apropriate for them if they want to learn to program
+well.
+
+If you are a programmer, then this will make sense to you: we're not
+dumbing it down. We're going to start with object-oriented, test-driven,
+well-crafted code. We're going to talk about coupling, cohesion, naming,
+testing, abstraction, and volatility even if we don't introduce the
+words right away.
+
+If you're not a programmer, hopefully you've come to the right place.
+
+
+
