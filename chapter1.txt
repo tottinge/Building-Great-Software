@@ -11,14 +11,6 @@ all the other programmers who learned the basic mechanics but don't really
 understand it. footnote:[there are a lot of people who program for a living
 but don't really understand what they do. It's very sad.]
 
-The computer ("hardware") is a bunch of wires, and bent metal, and plastic, and
-what-have-you.  In the words of [cite], the hardware is the part you can kick.
-
-The part that makes the computer useful is called "software." 
-footnote:[That's unfair, because hardware makes the software useful, too, but it
-is still a useful way to think about software right now. Don't think too hard about it.]
-Software is just programs.
-
 Programs are everything that make a computer work, from Windows and Linux and
 OS/X (which are basically programs that run other programs), to console games,
 to the great Google search engine, to incredible photo-editing programs, word
@@ -58,18 +50,25 @@ give it a rest. You will learn when to push and when to rest.
 
 One Little Machine
 ------------------
-We are going to start in something called Python. The people who make python
-make it because they like it, not because they want to sell it and get rich.
-You can go to http:python.org[the Python web page] and get python. It's 
-really easy to install python, it's usually just a download footnote:[if 
-you use Ubuntu, you can use the software store]. 
+We are going to start with a programming tool called Python. The people who
+make python make it because they like it, not because they want to sell it and
+get rich.  You can go to http:python.org[the Python web page] and get python.
+It's really easy to install python, it's usually just a download footnote:[if
+you use Ubuntu, you can use the software center]. 
 
 Once you have python installed, you need to start it. The web page gives you
 instructions. You might use a menu and click "python" and "idle", or you might 
 go to a command line and type "python." Try it both ways, if you like.
 
-Eventually you will get a prompt that looks like this:
-image:prompt[python prompt]
+Eventually you will get a prompt that looks something like this:
+[source,bash]
+    Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
+    [GCC 4.5.2] on linux2
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> 
+
+The version numbers and operating system version might be different, don't
+let that bother you.
 
 You can now start to play with some little machines. The first is something 
 called a "string," which is short for "text string." A string is some
@@ -77,12 +76,11 @@ letters, spaces, numbers or other text things you can type. In a string,
 they are all stuck together inside quotes:
 
 [source,python]
-    ottinge@annette:/ProgrammingAtAll$ python
     >>> "hello"
     'hello'
 
 Here we typed "hello" (including the quotes) and python gave us back the 
-result, which is a string with the value 'hell' (don't worry about quotes
+result, which is a string with the value 'hello' (don't worry about quotes
 for now). I know that doesn't seem like much of a machine, but it is. You
 can ask it to do things and it will do them.
 
@@ -127,7 +125,7 @@ It has some fancy abilities, like capitalizing the first letter of every word:
     'Hello'
 
 We can have it print itself at the right-end of a string, which we call
-"right-justified".  Let's right-justify a string in a 40-letter string:\
+"right-justified".  Let's right-justify a string in a 40-letter string:
 
 [source,python]
     >>> "hello".rjust(40)
@@ -151,7 +149,7 @@ Of course that looks too easy because it's at the beginning of the word.
 How about we replace all of the lower-case L letters with capital letters?
 
 [source,python]
-    >>> "hello".replace("l","L").swapcase()
+    >>> "hello".replace("l","L")
     'heLLo'
 
 We can also ask the string questions. Let's ask it how many lower-case 
@@ -212,6 +210,7 @@ python added the + and * as a convenience.
 It is as if you could write this:
 
 [source,python]
+   # Will not actually work, we'll show you a way that does soon.
    >> 2.__add__(2) 
    4
    >> 2.__mul__(4)
@@ -227,8 +226,8 @@ So strings are little machines and numbers are little machines. Already
 we could put them together and do very simple jobs. For instance, if we
 know the operators for integers, we can use python as a calculator!
 
-Variables
----------
+Naming Data With Variables
+--------------------------
 
 The problem with the code above is that we had to type "hello" every time we 
 wanted the string that contains the value "hello." What we need is some way to 
@@ -286,10 +285,7 @@ much to us. When we use names later in this book we will use longer
 names that mean something to us and which will help people reading
 our programs to understand them.
 
-Using Variables
----------------
-
-Just for fun we can print something like this:
+Just for fun we can print a popular myth like this:
 
 [source,python]
    >> print "George Washington has wooden teeth."
@@ -299,6 +295,15 @@ Print is a special command that tells python (remember python is a machine
 too) to show a message on the screen. It isn't very exciting, but it tells
 you that you now have new ways to interact with your machine.
 
+Let's step it up to use a single variable:
+[source,python]
+   >> a = "George Washington has wooden teeth."
+   >> print a
+   'George Washington has wooden teeth'
+
+We can always check the value of a variable this way. When we get a 
+lot of variables, we might sometimes not be sure of one or two of them,
+and printing them to the screen is a time-honored way to find out.
 Let's try something slightly more advanced:
 
 [source,python]
@@ -309,16 +314,102 @@ Let's try something slightly more advanced:
    George Washington has wooden teeth.
 
 Now we see that the print line is a kind of machine that assembles
-words into a sentence. That's almost exciting!  In our case, though,
-it is not as exciting as we would like. It would be more fun if 
-there was a way to have it build different sentences out of lists
-of different words. It might be more fun yet if it could pick the
-words randomly. 
+words into a sentence. That's almost exciting!  
+
+Of course, the variable names are pretty awful. You have to have a 
+codebook in your head that says "a stands for George Washington",
+"b stands for wooden", and "c stands for teeth."  That's sort of fun
+at first, but eventually becomes a real pain in the neck.
+
+Instead, Python allows us to use real names and real words. They have
+to start with a letter and contain letters and numbers footnote:[this is mostly true, but not complete]
+and maybe the underbar character ("_") to separate words. Names can
+be quite long.  Instead of the gibberish names above, we could write
+the same thing like this:
+
+[source,python]
+   >>> name = "George Washington"
+   >>> material = "wooden"
+   >>> parts = "teeth"
+   >>> print name  + " has " + material + " " + parts + "."
+   George Washington has wooden teeth.
+
+Now we can make some changes and print again:
+[source,python]
+   >>> parts="feet"
+   >>> material ="clay"
+   >>> print name + " has " + material + " " + parts + "."
+   George Washington has clay feet.
+
+Notice how much more obvious it is when we use real names.
+
+Writing Functions
+-----------------
+
+We would like to stop typing the print line over and over again. Wouldn't
+it be cool if we could turn it into a little command with a nice short name?
+I think I would like to be able to say something like:
+[source,python]
+   >> speak_about("George Washington", "wooden", "teeth")
+   'George Washington has wooden teeth.'
+
+Then I can give it different values for materials, names, and body parts and
+it would do assemble the sentence the same way regardless of what I told it.
+
+We can do that. Python lets us define something called a 'function' which 
+will take data and do something with it.
+[source,python]
+   >>> def speak_of(name, material, parts):
+   ...    print name + " has " + material + " " + parts + "."
+   ...
+   >>>
+
+There are some new things to explain here. The first is the word "def", 
+which means we are going to define a new function. 
+
+Next comes the name we want the function to have ("speak_of"), and then
+in parenthesis we say what variable names we want to give its data. We
+will pass three variables, with the names "name", "material", and "parts."
+
+Next comes a colon. Because we type a colon, python knows we're done 
+saying what the function and parameters are, and are ready to give it
+the function's instructions. It puts up dots instead of greater-than 
+signs to show that it knows there is more to come.
+
+We put a few spaces at the start of each line. In this case, I put three.
+As long as we indent the same way, prefixing three spaces, python knows
+we're still putting in instructions for "speak_of."
+
+When I'm done with the print line, I get three dots again. I don't have
+any more programming to do, so I just hit enter and let the dots go 
+away. Python answers with three greater-than signs, just like it usually
+does. 
+
+Let's give it a try:
+[source,python]
+   >>> speak_of("Harry","hairy", "feet")
+   Harry has hairy feet.
+   >> speak_of("Judy", "golden", "hair")
+   Judy has golden hair.
+   >> speak_of("Pirates","wooden","legs")
+   Pirates has wooden legs
+
+The grammar is awful on that last one, but it works like we told it
+to.  Programs don't figure things out, they just follow instructions.
+This is why programs often have problem. 
+
+In our case, though, it is not as exciting as we would like. It would be more
+fun if there was a way to have it build different sentences out of lists of
+different words. It might be more fun yet if it could pick the words randomly. 
 
 In other words, it would be fun to make a machine that spouts
 gibberish.
 
-It turns out that we have lists in python. They are machines that
+A Gibberish Machine
+-------------------
+
+
+We have lists in python. They are machines that
 hold a bunch of values and can give us one or several of them at a time.
 It's pretty cool stuff. Python is just full of little machines like
 these that we can use to build more interesting machines.
