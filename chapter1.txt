@@ -22,43 +22,59 @@ else to happen. Pressing a button on your video screen may cause it to get
 brighter or darker. Typing into an email program may cause it to send a note
 across the internet. 
 
-In other words, it's all "machines."  Hardware is a bunch of physical machines,
-from resistors to wires to capacitors and springs and buttons. Software is
-also a machine, but it's made out of something different. In this book, you 
-will learn about software parts and how to make machines of them.
+In other words, it's all "machines."  Hardware is a bunch of physical
+machines, from resistors to wires to capacitors and springs and buttons.
+Software is also a machine, but it's made out of something different. In
+this book, you will learn about software parts and how to make machines of
+them.
 
-What would you think of a new car made out of duct tape, paperclips, and chewing
-gum? It might be pretty cool to actually produce a car that way, but would
-you take it out on the highway? Machines can be made well, or can be made
-poorly. If we set out to build a machine poorly, it's a hobby or an experiment. 
-These are good things! You should be able to make something well, poorly, or
-semi-well, and you should enjoy doing it. If the work is important and you 
-want to be paid or you want people to use the software you build, you will 
-need to build it well. Don't be surprised that not all software is built well.
+What would you think of a new car made out of duct tape, paperclips, and
+chewing gum? It might be pretty cool to actually produce a car that way, but
+would you take it out on the highway? Machines can be made well, or can be
+made poorly. If we set out to build a machine poorly, it's a hobby or an
+experiment.  These are good things! You should be able to make something
+well, poorly, or semi-well, and you should enjoy doing it. If the work is
+important and you want to be paid or you want people to use the software you
+build, you will need to build it well. Don't be surprised that not all
+software is built well.
 
-Be warned, you won't be creating any 3D shooters in this book [well, maybe not], 
-but you will learn the essentials of computer programming. Knowing the basics
-will allow you to move to more and more fancy programming machines, and you
-may eventually build a 3D shooter, or a spaceship guidance system, or a
-web page. 
+Be warned, you won't be creating any 3D shooters in this book [well, maybe
+not], but you will learn the essentials of computer programming. Knowing the
+basics will allow you to move to more and more fancy programming machines,
+and you may eventually build a 3D shooter, or a spaceship guidance system,
+or a web page. 
 
-Also be warned, the topic is sometimes fascinating and exciting, but sometimes 
-you'll not feel like doing the work. That's pretty normal. Developing your
-ability to concentrate and do work until it is exciting again is a part of 
-learning to program. Also, a programmer has to learn to stop sometimes and 
-give it a rest. You will learn when to push and when to rest. 
+Also be warned, the topic is sometimes fascinating and exciting, but
+sometimes you'll not feel like doing the work. That's pretty normal.
+Developing your ability to concentrate and do work until it is exciting
+again is a part of learning to program. Also, a programmer has to learn to
+stop sometimes and give it a rest. You will learn when to push and when to
+rest. 
 
 One Little Machine
 ------------------
 We are going to start with a programming tool called Python. The people who
-make python make it because they like it, not because they want to sell it and
-get rich.  You can go to http:python.org[the Python web page] and get python.
-It's really easy to install python, it's usually just a download footnote:[if
-you use Ubuntu, you can use the software center]. 
+make python make it because they like it, not because they want to sell it
+and get rich.  You can go to http:python.org[the Python web page] and get
+python.  It's really easy to install python, it's usually just a download
+footnote:[if you use Ubuntu, you can use the software center]. 
+
+********
+'Why don't you tell me how to install Python?'
+
+
+Installation is done differently depending on your operating system, and the
+web sites for programming languages already have installation instructions. 
+We think those instructions are usually quite good.
+
+Besides, installers change over time. Even if we told you how to do it in
+this book, you would have to check the web site to see if it is still done
+that way.
+********
 
 Once you have python installed, you need to start it. The web page gives you
-instructions. You might use a menu and click "python" and "idle", or you might 
-go to a command line and type "python." Try it both ways, if you like.
+instructions. You might use a menu and click "python" and "idle", or you
+might go to a command line and type "python." Try it both ways, if you like.
 
 Eventually you will get a prompt that looks something like this:
 [source,bash]
@@ -71,7 +87,7 @@ The version numbers and operating system version might be different, don't
 let that bother you.
 
 You can now start to play with some little machines. The first is something 
-called a "string," which is short for "text string." A string is some
+called a 'string,' which is short for 'text string.' A string is some.
 letters, spaces, numbers or other text things you can type. In a string,
 they are all stuck together inside quotes:
 
@@ -79,11 +95,10 @@ they are all stuck together inside quotes:
     >>> "hello"
     'hello'
 
-Here we typed "hello" (including the quotes) and python gave us back the 
-result, which is a string with the value 'hello' (don't worry about quotes
-for now). I know that doesn't seem like much of a machine, but it is. You
-can ask it to do things and it will do them.
-
+Here we typed +"hello"+ (including the quotes) and python gave us back the 
+result, which is a string with the value +'hello'+ (don't worry about the
+different quotes for now). I know that doesn't seem like much of a machine,
+but it is. You can ask it to do things and it will do them.
 
 [source,python]
     >>> "hello" + ", you"
@@ -94,9 +109,22 @@ Here we did the same things as last time, but we told the string with
 "hello" in it to add a comma and the word 'you'. It did, and returned
 a new machine, which is a string with the value "hello, you." 
 
-The plus command above is called an "operator", but those are not 
-too important right now. Let's set that one aside and look at the
-other ways we can talk to a string.
+Python (which is also a machine) responded by printing +'hello you'+.
+
+The plus command above is called an "infix operator" which is a fancy
+way of saying that it is a command that sits between the two pieces
+of data it works on. Here are a few more "infix operators"
+
+[source,python]
+    >>> 1 + 1
+    2
+    >>> 2*5
+    10
+    >>> "a" * 4
+    'aaaa'
+
+That last one is a bit of a surprise; who would have thought you could
+multiply a string? Sure enough, 'a + 4' is 'aaaa.' 
 
 The string is a kind of machine that can obey a large set of commands.
 To give it a command, you have to know the name of the command and
@@ -117,8 +145,8 @@ The string can also convert itself to lower-case:
     >>> "HELLO".lower()
     'hello'
 
-
-It has some fancy abilities, like capitalizing the first letter of every word:
+It has some fancy abilities, like capitalizing the first letter of every
+word:
 
 [source,python]
     >>> "hello".title()
@@ -209,18 +237,19 @@ python added the + and * as a convenience.
  
 It is as if you could write this:
 
+`Will not actually work, we'll show you a way that does soon.`
 [source,python]
-   # Will not actually work, we'll show you a way that does soon.
    >> 2.__add__(2) 
    4
    >> 2.__mul__(4)
    8
    >> 
 
-You don't have to like the names "__mul__" and "__add__" in order to use them.
-The people who made python decided that this is how they would make their 
-number types. As long as they do what you want, you can tolerate a little 
-strangeness.
+
+You don't have to like the names "__mul__" and "__add__" in order to use
+them.  The people who made python decided that this is how they would make
+their number types. As long as they do what you want, you can tolerate a
+little strangeness.
 
 So strings are little machines and numbers are little machines. Already
 we could put them together and do very simple jobs. For instance, if we
@@ -229,16 +258,16 @@ know the operators for integers, we can use python as a calculator!
 Naming Data With Variables
 --------------------------
 
-The problem with the code above is that we had to type "hello" every time we 
-wanted the string that contains the value "hello." What we need is some way to 
-hold onto the "hello" string and talk about it. Indeed we can. We can make up 
-a name and assign the value "hello" to that name.  
+The problem with the code above is that we had to type "hello" every time we
+wanted the string that contains the value "hello." What we need is some way
+to hold onto the "hello" string and talk about it. Indeed we can. We can
+make up a name and assign the value "hello" to that name.  
 
 This is a little confusing, though. The command we use to give a name to a
 value is the equals sign (=). All of our lives, we have seen the equal sign
 used to state a fact. For instance: 2+2 = 4. We have to rework our brain a
-bit to understand that many programming languages do it differently. Some are
-more reasonable-seeming than others:
+bit to understand that many programming languages do it differently. Some
+are more reasonable-seeming than others:
 
 [source,vbscript]
    let x = 3;   <-- BASIC
@@ -341,7 +370,9 @@ Now we can make some changes and print again:
    >>> print name + " has " + material + " " + parts + "."
    George Washington has clay feet.
 
-Notice how much more obvious it is when we use real names.
+Notice how much more obvious it is when we use real names for our data.
+That is an important fact that many programmers, even professionals, do
+not consider strongly enough.
 
 Writing Functions
 -----------------
