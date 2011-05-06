@@ -5,11 +5,11 @@ A Bunch Of Machines
 Think About Programming
 -----------------------
 
-Before we can start programming, we have to think about programming and 
-programs. If you can think about it right, you'll have an advantage over
-all the other programmers who learned the basic mechanics but don't really
-understand it. footnote:[there are a lot of people who program for a living
-but don't really understand what they do. It's very sad.]
+Before we can start programming, we have to think about programming and
+programs. If you can think the right way about it, you'll have an advantage
+over all the other programmers who learned the basic mechanics but don't really
+understand it. footnote:[there are a lot of people who program for a living but
+don't really understand what they do. It's very sad.]
 
 Programs are everything that make a computer work, from Windows and Linux and
 OS/X (which are basically programs that run other programs), to console games,
@@ -400,21 +400,33 @@ which means we are going to define a new function.
 
 Next comes the name we want the function to have ("speak_of"), and then
 in parenthesis we say what variable names we want to give its data. We
-will pass three variables, with the names "name", "material", and "parts."
+will pass three variables, with the names "name", "material", and "parts." 
+Next comes a colon. 
 
-Next comes a colon. Because we type a colon, python knows we're done 
-saying what the function and parameters are, and are ready to give it
-the function's instructions. It puts up dots instead of greater-than 
-signs to show that it knows there is more to come.
+After the colon we have indented some more instructions to python. 
+The indented part is called a "block" or if you like "block of code."
+When python expects an indented block of code, it prints dots instead
+of greater-than signs in order to help you understand what you should
+do next. 
 
-We put a few spaces at the start of each line. In this case, I put three.
-As long as we indent the same way, prefixing three spaces, python knows
-we're still putting in instructions for "speak_of."
+Our block only has one instruction, but a block could have more.
+If the block of code was not indented or marked in some special way,
+how would python know when you are finished with it? All programming 
+languages use special syntax to show which instructions are part of
+the block, and python uses indentation. As long as all of the lines
+have the same indentation, it doesn't matter if you use one space,
+ten spaces, a tab, five tabs... consistency is all that matters. 
+I used three spaces. As long as we indent the same way, prefixing 
+three spaces, python knows we're still putting in instructions for 
+"speak_of."
+
+You can think of the indented block with the print statement as being connected
+to the speak_of name by the colon operator. 
 
 When I'm done with the print line, I get three dots again. I don't have
-any more programming to do, so I just hit enter and let the dots go 
-away. Python answers with three greater-than signs, just like it usually
-does. 
+any more programming to do, so I just hit enter instead of typing more 
+instructions into the block. The dots go away. Python answers with three 
+greater-than signs, just like it usually does. 
 
 Let's give it a try:
 [source,python]
@@ -527,8 +539,203 @@ as we go along.
 The first trick is one you're already doing: read books, try things out, and
 concentrate on learning instead of being perfect.
 
-Remember, when we got the last name instead of the first one, the earth did not implode and nobody got hurt. The program just did not work. This is how most 
-errors turn out. There have been bugs that hurt people or cost money, but we're 
+Remember, when we got the last name instead of the first one, the earth did not
+implode and nobody got hurt. The program just did not work. This is how most
+errors turn out. There have been bugs that hurt people or cost money, but we're
 not going to make those here. 
 
+The List Walker
+===============
 
+Now we can create lists, and we can use them. One way to make our gibberish
+generator is to create a list of names, a list of adjectives, and a list of
+body parts footnote:[keep it clean, kids]
+
+[source, python]
+   >>>names = [ "Tim", "Jeff", "Bob"]
+	>>>adjectives = ["huge", "tiny", "hairy"]
+	>>>parts = [ "feet", "ears", "arms"]
+   >>> speak_of(names[0], adjectives[0], parts[0]
+   'Tim has huge feet."
+
+Okay, that's the right idea. Now we need to figure out how to get all of
+the words to be used. We've cleverly matched the number of parts, adjectives,
+and names (all are 3) so we need some way to do all the zeroes, then the
+ones, then the twos.  This way is no fun:
+
+[source, python]
+   >>> speak_of(names[0], adjectives[0], parts[0]
+   'Tim has huge feet."
+   >>> speak_of(names[1], adjectives[1], parts[1]
+   'Jeff has tiny ears."
+   >>> speak_of(names[2], adjectives[2], parts[2]
+   'Bob has hairy arms."
+
+
+It works, and we could leave our program this way, but that would not
+teach us anything new.  Besides, it is quite boring to repeat the same
+code and retype the numbers each time.  It is worse than boring! Most
+professional programmers consider repeating code (even with small changes)
+to be a crime against programming!footnote[as do we]
+
+If we had a variable we could keep from repeating the numbers in each
+line:
+
+[source, python]
+   >>> x = 0
+   >>> speak_of(names[x], adjectives[x], parts[x]
+   'Tim has huge feet."
+   >>> x = 1
+   >>> speak_of(names[x], adjectives[x], parts[x]
+   'Jeff has tiny ears."
+   >> x = 2
+   >>> speak_of(names[x], adjectives[x], parts[x]
+   'Bob has hairy arms."
+
+That keeps us from repeating inside the line, but now we have to 
+do more work for each printed phrase. While the variable made some
+things easier it made others harder.  If anything, it made the code
+even more duplicate than before!
+
+Python provides us with a special machine to help us out. It is called
+a loop. It repeats some code over and over. A very nice kind of machine 
+is the "for" loop.
+
+
+[source, python]
+   >> for x in [0,1,2]:
+   ...    speak_of(names[x], adjectives[x], parts[x])
+   ...
+   'Tim has huge feet."
+   'Jeff has tiny ears."
+   'Bob has hairy arms."
+   
+
+What the "for" loop does is set x to each of the values in the number list
+[0,1,2] in turn, and after setting x each time it does the work that is 
+indented after the colon (:) mark.  In our case, it is just the ~speak_of~ 
+command.  It is a very simple idea, and it works just great. 
+
+Any time you need to walk through a list, you might consider using a ~for~ loop.
+There are several kinds of loops in python, but this one is the one you will use
+most.
+
+
+Being Unpredictable
+===================
+
+This was fun and we got to learn more about lists and loops, but the output is
+rather predictable. It would be more fun if we could make the program choose
+parts at random footnote[as far as we can tell it is random] to provide comic
+effects.
+
+Programmers can build their own machines, rather than simply relying upon the
+various machines built by python and installed in the language like loops, 
+lists, strings, and numbers. One very smart programmer made a random chooser
+for us.  He put his little machine in a file called "random" somewhere
+in the computer.
+
+[source, python]
+   >>> import random
+   >>> random.choice(names)
+   'Bob'
+
+If you do the same thing I just did, it probably didn't say Bob, but might
+have said 'Tim' or 'Jeff' instead.  If I do the same thing over and over,
+I might get different answers each time.
+
+
+[source, python]
+   >>> random.choice(names)
+   'Tim'
+   >>> random.choice(names)
+   'Jeff'
+   >>> random.choice(names)
+   'Jeff'
+   >>> random.choice(names)
+   'Bob'
+   >>> random.choice(names)
+   'Tim'
+
+Note that it can repeat the same name or a different name. It's random! footnote[random-ish] 
+
+How does the random machine's choice command know how big the list is? That's easy! The list
+is a machine that knows its length and reports it if you give it a special python command:
+
+[source, python]
+    >>> len(names)
+    3
+
+The choice command doesn't have to know anything, it can just ask. It specializes in picking
+a number within the size of the list and returning the list element just as if it had
+been written this way:
+
+[source, python]
+      def choice(some_list):
+          chosen = some_number_less_than( len(some_list) )
+          return some_list[chosen]
+
+All of the magic is in the part we called "some_number_less_than" above. How it works is
+a matter for the mathematically inclined among us, the rest can be happy that the machine is
+well-tested and works just fine. 
+
+Now we can rewrite our loop!
+[source, python]
+   >>> for x in [0,1,2]:
+   ...    speak_of(random.choice(names), random.choice(adjectives), random.choice(parts))
+   ...
+
+   Jeff has hairy ears.
+   Jeff has tiny feet.
+   Bob has huge feet.
+
+Notice that your results may vary from mine. 
+
+There is a lot going on in this little example. Here I've rewritten it as one 
+organized set of program statements:
+
+[source, python]
+   import random
+
+   names = [ "Tim", "Jeff", "Bob"]
+	adjectives = ["huge", "tiny", "hairy"]
+	parts = [ "feet", "ears", "arms"]
+   
+   def speak_of(name, material, parts):
+      print name + " has " + material + " " + parts + "."
+   
+   for x in [0,1,3]:
+      speak_of(random.choice(names), random.choice(adjectives), random.choice(parts))
+
+
+ * We have imported something called random, which has a command called 'choice'.  Python programmers
+   usually put import statements at the top of the file.
+
+ * We have lists for names, adjectives, and parts. Python programmers often define data near the top
+   of a file, but the only important thing is that we define the data before we use it.
+
+ * We assigned the name "speak_of" to a block of code.  
+
+ * speak_of will assign new names to the three variables we pass to it temporarily. We don't even
+   really know which strings we'll give it, but we know there will be three and the function will
+   call them "name", "material", and "part."
+
+ * speak_of will also build a new string by sticking known strings together in a predictable order, and
+   it will print the new string.
+
+ * We built a for loop that assigns each of the numbers from a list in turn to the variable 'x'. 
+
+ * The loop ends in a colon because it is a control, and code under it is indented
+   because it is a block.
+
+ * The loop's block will call speak_of, passing a randomly chosen name as "name", a randomly-chosen adjective as "material",
+and a randomly-chosen part as "parts."
+
+ * Each time we run the program it might produce different results.
+
+
+That sounds like an awful lot of things to learn about in one chapter, but the important fact underneath it all is that this programming work
+is all about assembling machines by assembling other machines. Knowing what machines are available and what they can do will help us to 
+expand our awesome powers of programming. 
+
+We aren't quite done with our python gibberish generator, but the next step will wait until we get to chapter 2.
