@@ -124,7 +124,7 @@ of data it works on. Here are a few more "infix operators"
     'aaaa'
 
 That last one is a bit of a surprise; who would have thought you could
-multiply a string? Sure enough, 'a + 4' is 'aaaa.' 
+multiply a string? Sure enough, 'a * 4' is 'aaaa.' 
 
 The string is a kind of machine that can obey a large set of commands.
 To give it a command, you have to know the name of the command and
@@ -191,7 +191,7 @@ L letters it has:
 All of the abilities are built-in to the string. It's just the kind of
 machine it is. footnote:[Advanced students can find out what a string can
 do by typing <code>dir("hello")</code>] Somebody cleverly added these
-commands when they designed the string type of machine.
+commands when they designed the software machine we call a /string/.
 
 Here is a good place for some terminology. A type of machine is a class. 
 Programmers would say that "hello" has the string /class/, or that it is
@@ -199,7 +199,7 @@ a thing of /class string/.
 
 Notice that the string doesn't draw butterflies on the screen, or turn off the
 computer or add numbers together. It only does "string stuff." It is important
-that each machine we make has commands that work together. It is just like at
+that each machine we make has commands that make sense together. It is just like at
 your house, where you turn on the television to watch a show, but turn on the
 blender to make a milkshake. You use the refrigerator to make things cold, and
 the stove to make them hot. It is an important law of machines that they have
