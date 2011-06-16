@@ -12,9 +12,10 @@ Reviewers providing editing and suggestions:
 
 
 To produce a book-like html:
-   asciidoc -d book *txt
-   For best results, you should have source-highlight installed.
-   The asciidoc website has a cheatsheet which is most useful.
+   asciidoc -d book title.txt
+   asciidoc -d book chapter1.txt
+For best results, you should have source-highlight installed.
+The asciidoc website has a cheatsheet which is most useful.
 
 Please use or improve the examples here. Tim is an asciidoc newbie.
 
