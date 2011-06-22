@@ -1,5 +1,8 @@
 A Bunch Of Machines
 ===================
+Tim Ottinger
+v0.1 2011
+:doctype: book
 
 
 Think About Programming
@@ -191,11 +194,11 @@ L letters it has:
 All of the abilities are built-in to the string. It's just the kind of
 machine it is. footnote:[Advanced students can find out what a string can
 do by typing <code>dir("hello")</code>] Somebody cleverly added these
-commands when they designed the software machine we call a /string/.
+commands when they designed the software machine we call a 'string'.
 
 Here is a good place for some terminology. A type of machine is a class. 
-Programmers would say that "hello" has the string /class/, or that it is
-a thing of /class string/.  
+Programmers would say that "hello" has the string 'class', or that it is
+a thing of 'class string'.  
 
 Notice that the string doesn't draw butterflies on the screen, or turn off the
 computer or add numbers together. It only does "string stuff." It is important
@@ -448,9 +451,10 @@ different words. It might be more fun yet if it could pick the words randomly.
 In other words, it would be fun to make a machine that spouts
 gibberish.
 
+
+
 A Gibberish Machine
 -------------------
-
 
 We have lists in python. They are machines that
 hold a bunch of values and can give us one or several of them at a time.
@@ -552,11 +556,11 @@ generator is to create a list of names, a list of adjectives, and a list of
 body parts footnote:[keep it clean, kids]
 
 [source, python]
-   >>>names = [ "Tim", "Jeff", "Bob"]
-	>>>adjectives = ["huge", "tiny", "hairy"]
-	>>>parts = [ "feet", "ears", "arms"]
-   >>> speak_of(names[0], adjectives[0], parts[0]
-   'Tim has huge feet."
+    >>>names = [ "Tim", "Jeff", "Bob"]
+    >>>adjectives = ["huge", "tiny", "hairy"]
+    >>>parts = [ "feet", "ears", "arms"]
+    >>> speak_of(names[0], adjectives[0], parts[0]
+    'Tim has huge feet."
 
 Okay, that's the right idea. Now we need to figure out how to get all of
 the words to be used. We've cleverly matched the number of parts, adjectives,
@@ -603,12 +607,14 @@ is the "for" loop.
 
 
 [source, python]
+----
    >> for x in [0,1,2]:
    ...    speak_of(names[x], adjectives[x], parts[x])
    ...
    'Tim has huge feet."
    'Jeff has tiny ears."
    'Bob has hairy arms."
+----
    
 
 What the "for" loop does is set x to each of the values in the number list
@@ -695,17 +701,19 @@ There is a lot going on in this little example. Here I've rewritten it as one
 organized set of program statements:
 
 [source, python]
-   import random
+----
+import random
 
-   names = [ "Tim", "Jeff", "Bob"]
-	adjectives = ["huge", "tiny", "hairy"]
-	parts = [ "feet", "ears", "arms"]
-   
-   def speak_of(name, material, parts):
-      print name + " has " + material + " " + parts + "."
-   
-   for x in [0,1,3]:
-      speak_of(random.choice(names), random.choice(adjectives), random.choice(parts))
+names = [ "Tim", "Jeff", "Bob"]
+adjectives = ["huge", "tiny", "hairy"]
+parts = [ "feet", "ears", "arms"]
+
+def speak_of(name, material, parts):
+    print name + " has " + material + " " + parts + "."
+
+for x in [0,1,3]:
+    speak_of(random.choice(names), random.choice(adjectives), random.choice(parts))
+----
 
 
  * We have imported something called random, which has a command called 'choice'.  Python programmers
@@ -733,9 +741,521 @@ and a randomly-chosen part as "parts."
 
  * Each time we run the program it might produce different results.
 
+Our gibberish program was fun and illustrated a lot of concepts. You saw it using lists and strings and numbers, 
+infix operators (=,+), functions (choice, speak_of), and global commands (len, print). We have already used
+import to bring in code that other people wrote.
 
 That sounds like an awful lot of things to learn about in one chapter, but the important fact underneath it all is that this programming work
 is all about assembling machines by assembling other machines. Knowing what machines are available and what they can do will help us to 
 expand our awesome powers of programming. 
 
-We aren't quite done with our python gibberish generator, but the next step will wait until we get to chapter 2.
+
+Programs that stay around
+-------------------------
+
+When professional python programmers write programs, they certainly could write
+the code in the python prompt like we did if their programs were all very small
+and simple. Programs used to run businesses are not very small or very simple.
+Mistakes made when typing the program could cause people to make large financial
+errors.  
+
+Instead, programs are in a massive collection of files containing many programs
+like the ones above. There are a lot of 'little machines' for doing accounting, 
+creating web pages, controlling machines, communicating over networks, drawing
+game graphics, generating reports, and storing massive amounts of data.  
+
+In every programming language, there is some way to organize big programs. 
+
+We've already learned to collect code into functions, and we know that there
+are such things as classes. Now it's time to start dealing with files and
+modules.
+
+You are going to need some kind of text editor. You probably have something
+like windows 'notepad', 'gedit' or 'nano' on linux, 'textedit' on mac, or you
+might have something really cool like scite or idle or vim or emacs or eclipse.
+Some of these are very easy to use, some are harder to learn but can do a lot
+more stuff. Many programmers know how to use several editors.
+
+You will not want to use a word processor like 'Word(tm)' or 'LibreOffice' 
+because they create files with all kinds of information about font sizes and
+type faces and formatting that makes documents look really great. A text editor
+does none of that because programming languages don't handle all the formatting.
+Maybe it would be cool if you could write your programs using a word processor,
+so you could make different colored text and bold, italic, or oversized 
+text... but that's really now how it works. For now we can ignore all of that
+and work in our text editors.
+
+There are text editors that are written specifically for writing python programs.
+DrPython, SPE,  [a few others] can do that, and you probably also have idle
+installed.  We're not going to teach you how to use the editor in this book.
+Your editor probably has help files and online tutorials to make it easy to
+use. Whatever you don't understand, you might not need yet.
+
+I will call your editor EDITOR.  If I say this:
+
+[source, bash]
+    > EDITOR junk.py
+
+You would not type +EDITOR junk.py} but the name of your editor and the
+file name 'junk.py'.  If your editor is idle, you would have typed
+
+[source, bash]
+   > idle junk.py
+
+
+We can create a file called gibberish.py and fill it with the gibberish
+program from above. Make sure you get out of python so you're back at 
+the command line ('terminal' or 'console').
+
+[source, bash]
+    EDITOR gibberish.py
+
+
+.Gibberish.py
+[source, python]
+----
+import random
+
+names = [ "Tim", "Jeff", "Bob"]
+adjectives = ["huge", "tiny", "hairy"]
+parts = [ "feet", "ears", "arms"]
+
+def speak_of(name, material, parts):
+    print name + " has " + material + " " + parts + "."
+
+for x in [0,1,3]:
+    speak_of(random.choice(names), random.choice(adjectives), random.choice(parts))
+----
+
+Save the file and exit the editor.  You should be able to tell python to run the 
+gibberish program:
+
+[source, bash]
+   > python gibberish.py
+
+If you typed it perfectly, including indentation, then python should reward you
+by printing out all the gibberish just like it did in the last chapter. If not, 
+you will have to edit the file and fix it.
+
+Python will tell you what kind of error you made (though it might not seem very
+obvious to you) and which line of the file has the error. This is to help you
+find and correct your errors.
+
+A syntax error means that you typed something that Python can't understand.
+It might mean you misspelled a word or got the punctuation wrong.  If you 
+write a list with a square bracket +[+ in front but a +}+ at the end, it will
+tell you you have a mismatch. If you leave a colon (+:+) off of a loop or 
+function, it will be a syntax error. Learn what the errors look like.
+
+Python is special in that it doesn't like you to use tabs sometimes and spaces
+other times. It wants everything indented in the same way, even if it looks 
+the same to you.  Make sure you have only spaces for indenting, and you will
+be fine.  Programming languages are pretty particular about syntax and 
+spelling and punctuation (far worse than your 4th grade English teacher).
+
+It is okay if it takes several tries, and even if you get confused or frustrated.
+A big part of programming is learning to fight your ways through errors to get
+your code to work.
+
+Once you have the code working, you might want to go back and add errors just 
+to learn what python tells you when it doesn't understand your cde.  Try one
+error, save the file, run python, and then fix the code and try another error.
+You don't want to have more than one error, or you might forget how to fix 
+the program. Since your goal is to learn right now, it's great to learn how 
+things fail and how to fix them.
+
+Make sure your program is working before you continue.
+
+Making a Class For Gibberish Generation
+---------------------------------------
+
+There is a lot to do to turn our little functions into a class. 
+You might remember from earlier that a class is a kind of machine.
+Our little program is a machine, and it uses strings and random
+generators, but we can wrap that up as a kind of machine of its
+own that we can use to build larger machines yet.
+
+Here's what the class of a gibberish machine might look like:
+
+[source, python]
+----
+import random
+
+class Gibberish(object):
+    names = ["Tim", "Jeff","Bob","Charlene"]
+    adjectives = ["huge", "tiny","hairy","wrinkly"]
+    parts = ["arms","ears","feet","earrings","knuckles"]
+
+    def speak(self):
+        print random.choice(self.names)+ \
+              " has "+\
+              random.choice(self.adjectives)+ \
+              " "+\
+              random.choice(self.parts)+ \
+              "."
+
+talker = Gibberish()
+talker.speak()
+----
+
+There are many features here you've not seen before, but lets walk though 
+them together.
+
+ * You've imported random before, that's not new at all.
+
+ * The 'class' statement is new, though. It tells python we're creating a class,
+not a function or something to run immediately.  
+
+ * In the parenthesis is the name of the class we want to build from. Putting
+something inside the class parenthesis is like doing an import into your class.
+We call that 'inheritance' because you get everything the other class has. 
+We don't want to use that at all right now.
+
+ * When you don't have something you want to import, you can leave the
+parentheses empty but the python way is to use 'object'. You can learn more
+about inheriting from object, but it's not all that interesting right now.
+
+ * Notice that all the stuff that belongs to the class is indented. Python uses
+indented paragraphs as the clue that lines of code belong together.
+You can see the lists (names, adjectives, parts) are indented. Also the def
+for our speak command is indented. 
+
+ * The print statement would get pretty long if I left it on one line, in fact
+it would be too long for this book. I split it by putting a "\" at the end
+of the line. It is the _very_ last thing on the line, and has no spaces after
+it.  
+
+ * Notice that whenever we wanted to refer to something in Gibberish, we put
+*self.* in front of it. This is how the functions in a class (called methods)
+have access to the object they live in. If we didn't mention "self." then the
+function would look for "names", "adjectives", and "parts" outside of the
+class instead of looking inside where they actually belong.
+
+ * If we left off the last paragraph and ran the file with python, it would 
+create the Gibberish class and exit without doing anything interesting.
+Instead we created a Gibberish object (a machine of the Gibberish class)
+and told it to speak. 
+
+As you can see, there is a bit of extra work to building a class. It is
+not very hard to do, and we'll show you later how to use a class.
+
+For now, try to change your gibberish file to make a class like we showed
+above. Each time you run the program in python, it will say something about
+someone and their funny characteristics.
+
+
+Other kinds of errors:
+----------------------
+
+Look at this sentence:
+     Eye can sea ewe, sew bee cool.
+
+If you read it out loud, you will know what I meant to say. Individually
+the words are all spelled correctly, but the words we spelled don't make sense
+in the sentence you read.  Instead of 'eye' it should say 'i', and instead of
+'ewe' it should say 'you'.
+
+In programming, we can write a program that looks okay to python's syntax
+checker, but can do the wrong thing entirely. The program has what we would
+call a 'logical error'.
+
+When there is a syntax error, the program won't run at all. When there is a
+logical error, the program runs but fails in a different way such as giving 
+the wrong answer.
+
+Computers can't tell good answers from bad answers, and can't understand what
+you mean, so you have to do a good job of telling it what you mean.  We need
+some way to protect ourselves from logical errors, so we have developed a
+really cool technique: unit testing!
+
+In this case "unit" means "some small piece of programming work."  There are
+other kinds of tests, and we'll talk about those later on. For now, we should
+learn to write small tests.
+
+In order to test we need to learn a few different things.  Let's get started.
+
+[source, bash]
+    > EDITOR test_gibberish.py
+
+[source, python]
+    > import unittest
+    > unittest.main()
+
+Exit the editor, and try this:
+[source, bash]
+    > python test_gibberish.py
+
+This should work, and should tell you that there were no tests run. This is 
+correct, because we didn't write any tests. All we did is make a program that
+is capable of running unit tests. 
+
+The first line imports the unittest module. It's a normal kind of import, 
+but this time we get unittest instead of random.footnote:[you can read about unittest online or in the library reference]
+
+The last line runs the "main" function of unittest, which tries to find and run 
+tests in the file. There are no tests, so it tells you that it did nothing and
+it's done.
+
+Let's load it up in the editor and so some more:
+
+.test_gibberish.py
+[source, python]
+----
+import unittest
+
+class TestRandomGenerator(unittest.TestCase):
+    def testThatFails(self):
+        self.fail("this fails")
+
+unittest.main()
+----
+
+Get out of your editor and run the test_gibberish program:
+
+[source, bash]
+    python test_gibberish.py
+
+This time it should tell you that you had a failing test:
+
+.An example
+    ======================================================================
+    FAIL: testThatFails (__main__.TestRandomGenerator)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+    File "<stdin>", line 5, in testThatFails
+    AssertionError: this fails
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+    FAILED (failures=1)
+    ======================================================================
+
+This is good news, because we told the test to fail.  There is suddenly a 
+lot going on here, so let's break it down a bit.
+
+[source, python]
+    import unittest
+
+This brings in all the unit test goodies.
+
+[source, python]
+    class TestRandomGenerator(unittest.TestCase):
+
+This has two interesting things happening. 
+
+We're making our second ever class ever!  We could call our test anything we
+wanted, but we called it TestRandomGenerator. It seemed like a good idea.
+
+The second interesting bit is after the word 'class', inside parentheses. It is
+the name of a class that someone else already built.  The "unittest" module we
+imported contains a class named "TestCase" and that class has a bunch of stuff
+we want to use.  Just as we imported "unittest" into our file, we are importing
+the TestClass into the class we're making.
+
+The next bit created a function, and ours has some interesting features:
+[source, python]
+        def testThatFails(self):
+            self.fail("this fails")
+
+This test is written as a 'method', which is what we call a function that
+belongs to an object. This function will be called by the test framework. 
+
+Remember that methods are part of a class, and receive 'self' as a parameter.
+It refers to the object the function is a part of, and gives access to all the
+other functions and data and stuff in the object. 
+
+In this case the 'fail' method is part of the stuff we get from 'unittest.TestCase'.
+It becomes a part of our class through 'inheritance'.
+
+[source, python]
+    unittest.main()
+
+This calls the main function of the unittest, which will look through our file
+for classes that inherit from 'unittest.TestCase', and will run the methods 
+that start with the word "test".  
+
+This gives us a few interesting bits to work from:
+ * We can work in files so our programs do not vanish when we close python.
+ * We have our class called 'Gibberish' in gibberish.py
+ * We have a failing test in 'test_gibberish.py'
+ * We have seen methods and classes.
+ * We know about imports and inheritance 
+
+That is a lot of stuff to know about, but it is a very good place to start.
+Now we can try to learn unit testing.
+
+Bring up this file in your editor:
+.test_gibberish.py
+[source, python]
+----
+import unittest
+
+class TestRandomGenerator(unittest.TestCase):
+    def testThatFails(self):
+        self.fail("this fails")
+
+unittest.main()
+----
+
+
+Let's change the file to have more interesting tests that prove we're
+doing a good job. Let's make sure that we're picking a name that is 
+really in the name list.
+
+We could look at all the names and see if at least one of them is
+in the text we get after doing "talker.speak" but that data is only
+printed. We never see that choice.
+
+Whenever we write code without tests, we make the code hard to test.
+Code that is hard to test tends not to have tests written for it. It
+would be really easy to give up on testing this little class and 
+check the results with our own two eyes. That's fine when we do 
+no more work than this, but imagine a program with dozens or hundreds
+of functions and you can understand that it would be hard to check 
+all of our functions by running the programs and checking the results
+manually.
+
+Checking the programs by hand becomes more expensive the more programs
+you have. The only alternative we have is to use automatic tests to
+check our code, but our code needs to make it easy to write these tests.
+
+Let's try to write our code so that testing is easy. The easiest way
+to do that is by writing the test first. Delete 'testThatFails' and 
+write a test more like this:
+[source, python]
+----
+import unittest
+import gibberish
+
+class TestRandomGenerator(unittest.TestCase):
+    def testNameIsSelected(self):
+        talker = gibberish.Gibberish()
+        self.assertTrue(talker.pickName() in talker.names)
+
+unittest.main()
+----
+
+Does this make sense? The first change is that we include gibberish 
+so that we can use the class we want to test. In our new test, we
+creat a Gibberish object and ask if the name it picks with pickName()
+is in the list of names it's allowed to use.
+
+The class for gibberish is 'Gibberish', and you see that we used
+the name 'gibberish.Gibberish'. This means the class Gibberish from 
+the imported module gibberish. The fact that the name is the same 
+except for capitalization shouldn't be too confusing. In python and
+many other languages, names are sensitive to capitalization so that
+Gibberish and gibberish are two different words entirely.
+
+The only thing that doesn't make sense is that there is no such thing
+as pickName() in the Gibberish class. If we run the test we get:
+
+.python test_gibberish.py
+----
+E
+======================================================================
+ERROR: testNameIsSelected (__main__.TestRandomGenerator)
+______________________________________________________________________
+Traceback (most recent call last):
+  File "test_gibberish.py", line 7, in testNameIsSelected
+    self.assertTrue(talker.pickName() in talker.names)
+AttributeError: 'Gibberish' object has no attribute 'pickName'
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+Charlene has hairy earrings.
+----
+
+Oh, look... Charlene has hairy earrings? Why did that show up? We 
+know why we got the warning about pickName, but this is a little 
+unexpected. 
+
+Pull up gibberish.py again and lets look at it:
+
+.gibberish.py
+----
+import random
+
+class Gibberish(object):
+    names = ["Tim", "Jeff","Bob","Charlene"]
+    adjectives = ["huge", "tiny","hairy","wrinkly"]
+    parts = ["arms","ears","feet","earrings","knuckles"]
+
+    def speak(self):
+        print random.choice(self.names)+ \
+              " has "+\
+              random.choice(self.adjectives)+ \
+              " "+\
+              random.choice(self.parts)+ \
+              "."
+
+talker = Gibberish()
+talker.speak()
+----
+
+At the bottom of the file, we create a Gibberish object and have it speak.
+What we need is to have a way to only do that if we are being run as a 
+program, and not if we're being imported for testing.
+
+The trick for this is kind of weird for a language that is normally 
+smart, but we know that we are dealing with the work of other programmers
+and they don't have to do things as we like.  Try changing the bottom of
+the file like this:
+
+[source, python]
+----
+if __name__ == "__main__":
+    talker = Gibberish()
+    talker.speak()
+----
+
+Weird, but when the program is run it will have its name set to 
+two underlines, the word 'main' and two more underscores. That's 
+kind of arbitrary and strange, but reliable. Now when we run the
+test it no longer puts a comment at the end.
+
+With that out of the way, we should change our code so that we 
+can finally check out if picking names works.
+
+.gibberish.py
+[source, python]
+----
+import random
+
+class Gibberish(object):
+    names = ["Tim", "Jeff","Bob","Charlene"]
+    adjectives = ["huge", "tiny","hairy","wrinkly"]
+    parts = ["arms","ears","feet","earrings","knuckles"]
+
+    def pickName(self):
+        return random.choice(self.names)
+
+    def speak(self):
+        print self.pickName() + \
+              " has "+\
+              random.choice(self.adjectives)+ \
+              " "+\
+              random.choice(self.parts)+ \
+              "."
+
+if __name__ == "__main__":
+    talker = Gibberish()
+    talker.speak()
+----
+
+Now we have a pickName function, and it's called from the 
+speak method. When we run the tests we get this:
+
+----
+.
+Ran 1 test in 0.000s
+
+OK
+----
+
+This means one test ran, and it passed! Now we know that the names
+are chosen correctly. By breaking out the one random choice to a
+function that returns the string instead of going straight to printing,
+we have made the code a little more testable.
+
+
+
